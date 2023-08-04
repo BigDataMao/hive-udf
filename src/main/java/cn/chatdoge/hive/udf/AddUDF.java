@@ -1,4 +1,4 @@
-package cn.chatdoge.hive;
+package cn.chatdoge.hive.udf;
 
 import org.apache.hadoop.hive.ql.exec.Description;
 import org.apache.hadoop.hive.ql.exec.UDF;
