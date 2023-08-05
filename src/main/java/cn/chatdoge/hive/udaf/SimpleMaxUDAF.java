@@ -6,10 +6,11 @@ import org.apache.hadoop.io.LongWritable;
 
 public class SimpleMaxUDAF extends UDAF {
     public static class a implements UDAFEvaluator{
+
         private long max = 0;
         @Override
         public void init() {
-            int max = 0;
+            max = 0;
         }
 
         public a() {
