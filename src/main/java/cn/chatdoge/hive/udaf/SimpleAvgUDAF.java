@@ -9,14 +9,12 @@ import java.util.List;
 
 public class SimpleAvgUDAF extends UDAF {
     public static class SimpleAvgUDAFEvaluator implements UDAFEvaluator{
-        private static int sum;
-        private static int count;
-        private static List<Integer> a;
+        private  int sum;
+        private  int count;
         @Override
         public void init() {
             sum = 0;
             count = 0;
-            a = new ArrayList<Integer>();
         }
 
         public boolean iterate(IntWritable input){
@@ -26,9 +24,13 @@ public class SimpleAvgUDAF extends UDAF {
         }
 
         public List<Integer> terminatePartial(){
-            a.add(sum);
-            a.add(count);
-            return a;
+//            a.add(sum);
+//            a.add(count);
+//            return a;
+            List<Integer> partialResult = new ArrayList<Integer>();
+            partialResult.add(sum);
+            partialResult.add(count);
+            return partialResult;
         }
 
         public boolean merge(List<Integer> other){
