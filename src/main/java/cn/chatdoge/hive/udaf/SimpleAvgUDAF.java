@@ -16,7 +16,7 @@ public class SimpleAvgUDAF extends UDAF {
         public void init() {
             sum = 0;
             count = 0;
-            List<Integer> a = new ArrayList<Integer>();
+            a = new ArrayList<Integer>();
         }
 
         public boolean iterate(IntWritable input){
@@ -32,15 +32,13 @@ public class SimpleAvgUDAF extends UDAF {
         }
 
         public boolean merge(List<Integer> other){
-            int aSum = sum + other.get(0);
-            int aCount = count + other.get(1);
-            a.set(0, aSum);
-            a.set(1, aCount);
+            sum = sum + other.get(0);
+            count = count + other.get(1);
             return true;
         }
 
         public IntWritable terminate(){
-            return new IntWritable(a.get(0) / a.get(1));
+            return new IntWritable(sum / count);
         }
     }
 }
