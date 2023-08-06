@@ -24,9 +24,6 @@ public class SimpleAvgUDAF extends UDAF {
         }
 
         public List<Integer> terminatePartial(){
-//            a.add(sum);
-//            a.add(count);
-//            return a;
             List<Integer> partialResult = new ArrayList<Integer>();
             partialResult.add(sum);
             partialResult.add(count);
