@@ -22,7 +22,7 @@ public class SimpleAvgNewUDAF extends AbstractGenericUDAFResolver {
         private IntObjectInspector inputOI; // 输入类型的ObjectInspector
         private IntWritable result; // 结果类型
 
-        static class AvgAgg implements AggregationBuffer {
+        static class AvgAgg extends AbstractAggregationBuffer {
             int sum;
             int count;
         }
