@@ -22,11 +22,6 @@ public class SimpleAvgNewUDAF extends AbstractGenericUDAFResolver {
         private IntObjectInspector inputOI; // 输入类型的ObjectInspector
         private IntWritable result; // 结果类型
 
-        static class AvgAgg extends AbstractAggregationBuffer {
-            int sum;
-            int count;
-        }
-
         @Override
         public ObjectInspector init(Mode m, ObjectInspector[] parameters) throws HiveException {
             super.init(m, parameters);
@@ -39,6 +34,11 @@ public class SimpleAvgNewUDAF extends AbstractGenericUDAFResolver {
 
             // 返回结果类型的ObjectInspector
             return PrimitiveObjectInspectorFactory.writableIntObjectInspector;
+        }
+
+        static class AvgAgg extends AbstractAggregationBuffer {
+            int sum;
+            int count;
         }
 
         @Override
